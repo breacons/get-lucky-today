@@ -1,0 +1,156 @@
+@import './variables';
+
+h1.ant-typography {
+  font-weight: 800;
+  font-size: 86px;
+  margin-bottom: 24px;
+}
+
+h2.ant-typography {
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+h3.ant-typography {
+  font-weight: 400;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.ant-typography {
+  line-height: 20px;
+  & strong {
+    font-weight: 700;
+  }
+}
+
+.ant-btn-link {
+  color: black;
+  font-weight: 800;
+  font-size: 16px;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.ant-btn-default,
+.ant-btn-dangerous {
+  border-radius: 20px;
+}
+
+.ant-btn-primary {
+  border-radius: 20px;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+a.ant-typography {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+input.ant-input,
+.ant-select-selector,
+.ant-input-affix-wrapper,
+.ant-picker,
+textarea.ant-input {
+  border-radius: 12px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+
+  &:focus {
+    border-color: @purple-color;
+  }
+}
+.ant-input-affix-wrapper {
+  & .ant-input {
+    border-radius: 0 !important;
+  }
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: @purple-color !important;
+}
+
+.ant-btn-default {
+  font-weight: 400;
+}
+
+.ant-btn-background-ghost.ant-btn:hover,
+.ant-btn-background-ghost.ant-btn:focus {
+  border-color: fade(@yellow-color, 50%);
+  color: white;
+  background-color: fade(@yellow-color, 50%) !important;
+}
+.ant-modal {
+  padding-bottom: 0;
+}
+//.ant-checkbox-wrapper {
+//  display: flex;
+//  flex-direction: row;
+//  align-items: center;
+//}
+
+.ant-table-row {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ant-table-cell,
+.ant-table-container {
+  border: none !important;
+}
+
+.ant-table-thead > tr > th {
+  background-color: white;
+  font-weight: 800;
+  border-bottom: #dbdbdb 1px solid !important;
+}
+
+.ant-tag {
+  border-radius: 12px;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  //font-weight: 800;
+}
+
+.ant-descriptions-item-label,
+.ant-form-item-label {
+  font-weight: 600 !important;
+}
+
+//.ant-descriptions-item {
+//  padding-bottom: 0px !important;
+//}
+
+.ant-descriptions-row:nth-child(odd) .ant-descriptions-item {
+  padding-bottom: 0px;
+}
+
+.ant-descriptions-row:last-child .ant-descriptions-item {
+  padding-bottom: 0;
+}
+
+a.ant-typography {
+  text-decoration: underline;
+}
+
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell-selected
+  .ant-picker-time-panel-cell-inner {
+  color: white;
+}
+
+.ant-select-item-option-selected, .ant-cascader-menu-item-active, .ant-cascader-menu-item-active svg {
+  color: white;
+}
+
+.ant-tabs, .ant-layout {
+  overflow: visible;
+}
+
