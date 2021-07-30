@@ -91,9 +91,9 @@ const createValidator = (steps: EventStep[]) => {
         .required(),
       accounts: joi
         .object({
-          instagram: joi.string().required(formats.includes('INSTAGRAM')),
+          // instagram: joi.string().required(formats.includes('INSTAGRAM')),
         })
-        .required(true)
+        .required(false)
         .unknown(true),
     })
     .unknown(true)
@@ -220,6 +220,7 @@ export const OpenEventAction = ({ event }: Props) => {
                 >
                   {({ valid, touched, values }): ReactElement => (
                     <Fragment>
+                        {/*<input type="hidden" value="prayer" />*/}
                       <If
                         condition={accountFields.length > 0 && currentStep === event.steps.length}
                         then={() => (
@@ -253,7 +254,7 @@ export const OpenEventAction = ({ event }: Props) => {
                               type="text"
                               label="Full Name"
                               placeholder="John Doe"
-                              autoComplete="new-password"
+                              autoComplete="off"
                             />
                             <Field
                               name="email"

@@ -42,7 +42,7 @@ export const EventCard = ({ event, past }: Props) => {
                 </strong>
               </Fragment>
             )}
-            else={() => <strong>{event.winners ? Object.keys(event).length : 0} winners</strong>}
+            else={() => <strong>{event.winners ? Object.keys(event.winners).length : 0} winners</strong>}
           />
         </div>
       </div>
