@@ -1,5 +1,6 @@
+import { FirebaseReducer, firebaseReducer } from 'react-redux-firebase';
 import { combineReducers } from 'redux';
-import { firebaseReducer, FirebaseReducer } from 'react-redux-firebase';
+
 import giftCards, { GiftCardState } from './blinksky/index';
 
 // Optional: If you use the user profile option

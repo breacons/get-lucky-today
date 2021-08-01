@@ -1,9 +1,11 @@
-import { Button, Descriptions, List, Modal, Space, Steps, Table, Tag, Typography } from 'antd';
+import { Button, Descriptions, Modal, Space, Steps, Table, Tag, Typography } from 'antd';
 import firebase from 'firebase';
 import _ from 'lodash-es';
 import React, { Fragment, useMemo, useState } from 'react';
 
+import If from '../../../../components/If';
 import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
+import { stepFormatDictionary } from '../../../../components/StepsField';
 import {
   EventParticipant,
   ParticipantStatus,
@@ -11,8 +13,6 @@ import {
   TransformedEvent,
 } from '../../../../interfaces/events';
 import { firebaseObjectToArray } from '../../../../utils/firebase-transformers';
-import { stepFormatDictionary } from '../../../../components/StepsField';
-import If from '../../../../components/If';
 
 interface Props {
   event: TransformedEvent;
@@ -23,13 +23,13 @@ const columns = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-      width: 300
+    width: 300,
   },
   {
     title: 'E-mail',
     dataIndex: 'email',
     key: 'email',
-      width: 600
+    width: 600,
   },
   {
     title: 'Status',
@@ -153,7 +153,7 @@ export const ParticipantsTab = ({ event }: Props) => {
           size="small"
           style={{ marginBottom: -20 }}
         >
-          {event.steps.map((step, index) => {
+          {event.steps.map((step) => {
             return (
               <Steps.Step
                 title={stepFormatDictionary[_.last(step.format) as StepFormat]}

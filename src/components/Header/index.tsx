@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 
-
 type PageTitleProps = {
   title: string;
 };
@@ -10,7 +9,7 @@ const ORG_BENEFITS = 'Get Lucky • Today';
 export function PageTitle({ title }: PageTitleProps) {
   return (
     <Helmet>
-      <title>{title} - {ORG_BENEFITS}</title>
+      <title>{title}</title>
     </Helmet>
   );
 }

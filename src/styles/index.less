@@ -2,7 +2,7 @@
 
 h1.ant-typography {
   font-weight: 800;
-  font-size: 86px;
+  font-size: 86px !important;
   margin-bottom: 24px;
 }
 
@@ -36,11 +36,11 @@ h3.ant-typography {
 
 .ant-btn-default,
 .ant-btn-dangerous {
-  border-radius: 20px;
+  border-radius: 20px !important;
 }
 
 .ant-btn-primary {
-  border-radius: 20px;
+  border-radius: 20px !important;
 
   &:hover {
     opacity: 0.75;
@@ -112,7 +112,7 @@ textarea.ant-input {
 }
 
 .ant-tag {
-  border-radius: 12px;
+  border-radius: 12px !important;
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -146,11 +146,13 @@ a.ant-typography {
   color: white;
 }
 
-.ant-select-item-option-selected, .ant-cascader-menu-item-active, .ant-cascader-menu-item-active svg {
+.ant-select-item-option-selected,
+.ant-cascader-menu-item-active,
+.ant-cascader-menu-item-active svg {
   color: white;
 }
 
-.ant-tabs, .ant-layout {
+.ant-tabs,
+.ant-layout {
   overflow: visible;
 }
-

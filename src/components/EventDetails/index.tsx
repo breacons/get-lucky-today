@@ -1,11 +1,12 @@
-import { EventStatus, TransformedEvent } from '../../interfaces/events';
-import React, { useMemo } from 'react';
 import { Col, Row, Typography } from 'antd';
-import styles from './styles.module.less';
-import PrizeCard from '../PrizeCard';
 import _ from 'lodash-es';
+import React, { useMemo } from 'react';
 import Countdown from 'react-countdown';
+
+import { EventStatus, TransformedEvent } from '../../interfaces/events';
 import If from '../If';
+import PrizeCard from '../PrizeCard';
+import styles from './styles.module.less';
 
 interface Props {
   event: TransformedEvent;

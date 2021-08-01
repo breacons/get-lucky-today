@@ -1,9 +1,10 @@
-import React from 'react';
-import { TransformedEvent } from '../../interfaces/events';
-import Countdown from 'react-countdown';
 import { Typography } from 'antd';
-import styles from './styles.module.less';
+import React from 'react';
+import Countdown from 'react-countdown';
+
+import { TransformedEvent } from '../../interfaces/events';
 import If from '../If';
+import styles from './styles.module.less';
 
 interface Props {
   event: TransformedEvent;
@@ -16,7 +17,7 @@ export const FutureEventAction = ({ event }: Props) => {
         🤭 This game is starting soon!
       </Typography.Title>
       <br />
-      <div className={styles.formContainer} style={{maxWidth: 800}}>
+      <div className={styles.formContainer} style={{ maxWidth: 800 }}>
         Submissions open in
         <Typography.Title level={1} style={{ marginBottom: 0 }}>
           <Countdown

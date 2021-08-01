@@ -1,6 +1,5 @@
 import { Spin } from 'antd';
 import classNames, { Argument } from 'classnames';
-import If from '../If';
 import { FORM_ERROR, FormApi, ValidationErrors } from 'final-form';
 import arrayMutators from 'final-form-arrays';
 import { ValidationErrorItem } from 'joi';
@@ -15,6 +14,7 @@ import {
 } from 'react-final-form';
 import { defineMessages, useIntl } from 'react-intl';
 
+import If from '../If';
 //import { report } from '../../service/reporting'
 import { validationMessages } from './validation';
 export type FormRenderProps = OriginalFormRenderProps;

@@ -1,4 +1,5 @@
 import 'moment/locale/hu';
+
 import { ConfigProvider } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 import huHU from 'antd/lib/locale/hu_HU';
@@ -38,7 +39,7 @@ class LanguageProvider extends React.Component<Props> {
   };
   static getDerivedStateFromProps(
     props: Props,
-    state: ComponentState
+    state: ComponentState,
   ): Partial<ComponentState> | null {
     if (props.locale !== state.locale) {
       moment.locale(props.locale);

@@ -13,12 +13,12 @@ import styles from './Collection.module.less';
 
 const { RangePicker } = DatePicker;
 
-interface Column {
-  title: string;
-  key: string;
-  width?: number;
-  render: (row: unknown) => ReactElement;
-}
+// interface Column {
+//   title: string;
+//   key: string;
+//   width?: number;
+//   render: (row: unknown) => ReactElement;
+// }
 
 export interface CustomColumnsProps<T> extends ColumnType<T> {
   searchable?: boolean;
@@ -58,8 +58,7 @@ function Collection<T extends object>({
       return column;
     }
     if (searchType === 'text') {
-
-        return {
+      return {
         // eslint-disable-next-line react/display-name
         filterDropdown: ({
           setSelectedKeys,
@@ -74,7 +73,7 @@ function Collection<T extends object>({
                 column.searchPlaceholder || intl.formatMessage(messages.inputPlaceholder)
               }
               value={selectedKeys && selectedKeys[0]}
-              onChange={e =>
+              onChange={(e) =>
                 setSelectedKeys && setSelectedKeys(e.target.value ? [e.target.value] : [])
               }
               // @ts-ignore
@@ -134,7 +133,7 @@ function Collection<T extends object>({
                 showTime={searchType === 'daterange' ? false : { format: 'HH:mm' }}
                 value={start && end ? [start, end] : null}
                 format={searchType === 'daterange' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'}
-                onChange={e => {
+                onChange={(e) => {
                   if (!e) {
                     return;
                   }
@@ -149,13 +148,13 @@ function Collection<T extends object>({
                     setSelectedKeys([]);
                   }
                 }}
-                  // @ts-ignore
+                // @ts-ignore
                 onOk={confirm}
                 className={styles.datetimeRangePicker}
               />
               <Button
                 type="primary"
-                  // @ts-ignore
+                // @ts-ignore
                 onClick={confirm}
                 size="small"
                 className={styles.filterDropdownButtonPrimary}

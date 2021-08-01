@@ -1,30 +1,25 @@
-import { Button, Col, Dropdown, Grid, Image, Layout, Menu, Row, Space, Typography } from 'antd';
-// import Link from 'next/link';
-import React, { PropsWithChildren, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-const { Content, Footer, Header } = Layout;
+import { Button, Col, Dropdown, Image, Layout, Menu, Row, Typography } from 'antd';
 import classNames from 'classnames';
-import { FormattedMessage } from 'react-intl';
+import firebase from 'firebase/app';
+// import Link from 'next/link';
+import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
+import { isEmpty, isLoaded } from 'react-redux-firebase';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+
+import { RootState } from '../../../redux/reducers';
+import { URL_ADMIN, URL_ADMIN_LOGIN, URL_LANDING } from '../../../urls';
+import If from '../../If';
+import { BaseLayout } from '../BaseLayout';
+import styles from './Landing.module.less';
 import logo from './logo.svg';
 
-import If from '../../If';
+const { Content, Footer, Header } = Layout;
 // import { getMe, getToken, loadUser, signOut } from '@/lib/slices/session';
 // import { useAppDispatch } from '@/lib/store';
 
-const { useBreakpoint } = Grid;
-
 // import Head from 'next/head';
-
-import { BaseLayout } from '../BaseLayout';
-
-import styles from './Landing.module.less';
-import { RootState } from '../../../redux/reducers';
-import firebase from 'firebase/app';
-import { URL_ADMIN, URL_ADMIN_LOGIN, URL_LANDING } from '../../../urls';
-import { isEmpty, isLoaded } from 'react-redux-firebase';
-import { assignWith } from 'lodash-es';
-import { useHistory } from 'react-router';
 interface Props {
   title?: string;
 }
@@ -34,8 +29,6 @@ export default function LandingLayout(props: PropsWithChildren<Props>) {
   // const token = useSelector(getToken);
   // const user = useSelector(getMe);
   // const dispatch = useAppDispatch();
-  const screens = useBreakpoint();
-  const smallScreen = !screens.lg;
   const history = useHistory();
 
   // useEffect(() => {
@@ -99,7 +92,9 @@ export default function LandingLayout(props: PropsWithChildren<Props>) {
               <Typography.Title level={3}>
                 <strong>About</strong>
               </Typography.Title>
-              <Typography.Link className={styles.footerLink}>How it Get Lucky works?</Typography.Link>
+              <Typography.Link className={styles.footerLink}>
+                How it Get Lucky works?
+              </Typography.Link>
               <Typography.Link className={styles.footerLink}>Team</Typography.Link>
               <Typography.Link className={styles.footerLink}>Contact</Typography.Link>
             </Col>

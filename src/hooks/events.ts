@@ -1,10 +1,11 @@
-import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers';
-import { useMemo } from 'react';
 import _ from 'lodash-es';
-import { firebaseObjectToArray, firebaseToArray } from '../utils/firebase-transformers';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
+
+import { RootState } from '../redux/reducers';
 import { transformEvent } from '../utils/events';
+import { firebaseObjectToArray, firebaseToArray } from '../utils/firebase-transformers';
 
 export const useEvents = (admin?: boolean) => {
   const auth = useSelector((state: RootState) => state.firebase.auth);

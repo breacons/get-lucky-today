@@ -1,22 +1,23 @@
-import React, { Fragment, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { RootState } from '../../../redux/reducers';
-import { Link, Redirect } from 'react-router-dom';
-import { URL_ADMIN, URL_ADMIN_SIGNUP } from '../../../urls';
-import Form from '../../../components/Form/Form';
-import { joi } from '../../../lib/joi';
-import { validateSchema } from '../../../components/Form/validation';
-import { Field } from 'react-final-form';
-import Input, { Password } from '../../../components/Form/Input';
-import styles from './styles.module.less';
-import { useHistory } from 'react-router';
 import { Button, Image, Typography } from 'antd';
-import logo from '../../../components/Layout/LandingLayout/logo.svg';
-import If from '../../../components/If';
-import { SpinnerOverlay } from '../../../components/SpinnerOverlay';
+import React, { Fragment, useState } from 'react';
+import { Field } from 'react-final-form';
+import { useSelector } from 'react-redux';
+import { isEmpty, isLoaded, useFirebase } from 'react-redux-firebase';
+import { useHistory } from 'react-router';
+import { Link, Redirect } from 'react-router-dom';
+
+import Form from '../../../components/Form/Form';
+import Input, { Password } from '../../../components/Form/Input';
+import { validateSchema } from '../../../components/Form/validation';
 import { PageTitle } from '../../../components/Header';
+import If from '../../../components/If';
+import logo from '../../../components/Layout/LandingLayout/logo.svg';
+import { SpinnerOverlay } from '../../../components/SpinnerOverlay';
+import { joi } from '../../../lib/joi';
+import { RootState } from '../../../redux/reducers';
+import { URL_ADMIN, URL_ADMIN_SIGNUP } from '../../../urls';
+import styles from './styles.module.less';
+
 const loginSchema = joi
   .object({
     email: joi
@@ -66,7 +67,7 @@ export const AdminLoginPage = () => {
               validator={validator}
               initialValues={{}}
             >
-              {({ valid, pristine, form, values }) => (
+              {({ valid, pristine }) => (
                 <Fragment>
                   <Link to="/" className={styles.logoContainer}>
                     <Image src={logo} preview={false} width={280} className={styles.logo} />

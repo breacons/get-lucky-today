@@ -1,25 +1,21 @@
 import {
   createAsyncThunk,
   createEntityAdapter,
+  createSelector,
   createSlice,
   EntityState,
   PayloadAction,
-  createSelector,
 } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+import { firebaseApiUrl } from '../../config';
 import { GiftCard } from '../../interfaces/blinksky';
 import { RootState } from '../reducers';
-import { firebaseApiUrl } from '../../config';
-import axios from 'axios';
 
 export const getGiftCards = createAsyncThunk('giftCards/get-all', async () => {
   const response = await axios.post(`${firebaseApiUrl}/catalog`);
   return response.data;
 });
-
-function compareDesc(date: Date, date2: Date) {
-  return 0;
-}
 
 export const giftCardsAdapter = createEntityAdapter<GiftCard>({
   // Assume IDs are stored in a field other than `book.id`
@@ -71,8 +67,7 @@ export const giftCardSelectors = giftCardsAdapter.getSelectors(
 );
 
 export const selectGiftCardEntities = giftCardsAdapter.getSelectors(
-    (state: RootState) => state.giftCards,
+  (state: RootState) => state.giftCards,
 ).selectAll;
-
 
 export default giftCardsSlice.reducer;

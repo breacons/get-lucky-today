@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch } from '../../../redux/store';
-import { getGiftCards } from '../../../redux/blinksky';
-import { EditEventForm } from '../../../components/EditEventForm';
-import { Typography } from 'antd';
-import { Link } from 'react-router-dom';
-import { URL_ADMIN, URL_ADMIN_EVENT_DETAIL } from '../../../urls';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Typography } from 'antd';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+import { EditEventForm } from '../../../components/EditEventForm';
 import { PageTitle } from '../../../components/Header';
+import { getGiftCards } from '../../../redux/blinksky';
+import { useAppDispatch } from '../../../redux/store';
+import { URL_ADMIN } from '../../../urls';
 
 export const AdminCreateEventPage = () => {
   const dispatch = useAppDispatch();

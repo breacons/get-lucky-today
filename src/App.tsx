@@ -1,9 +1,23 @@
 import './App.css';
+import './styles/index.less';
+import './index.less';
+
+import { ConfigProvider } from 'antd';
+import enUs from 'antd/lib/locale/en_US';
 import React from 'react';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { rrfProps, store } from './redux/store';
 import { Provider } from 'react-redux';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header';
+import LanguageProvider from './components/LanguageProvider';
+import PrivateRoute from './components/PrivateRoute';
+import AdminPages from './pages/AdminPages';
 import AdminLoginPage from './pages/AdminPages/AdminLoginPage';
+import AdminSignupPage from './pages/AdminPages/AdminSignupPage';
+import EventDetailPage from './pages/EventDetailPage';
+import LandingPage from './pages/LandingPage';
+import { rrfProps, store } from './redux/store';
 import {
   URL_ADMIN,
   URL_ADMIN_LOGIN,
@@ -11,19 +25,6 @@ import {
   URL_EVENT_DETAIL,
   URL_LANDING,
 } from './urls';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute';
-import AdminPages from './pages/AdminPages';
-import LandingPage from './pages/LandingPage';
-import EventDetailPage from './pages/EventDetailPage';
-import LanguageProvider from './components/LanguageProvider';
-
-import './styles/index.less';
-import './index.less';
-import AdminSignupPage from './pages/AdminPages/AdminSignupPage';
-import { ConfigProvider } from 'antd';
-import enUs from 'antd/lib/locale/en_US';
-import Header from './components/Header';
 
 function App() {
   return (

@@ -1,18 +1,20 @@
 import { Col, Modal, Row } from 'antd';
 import { ModalProps } from 'antd/es/modal';
+import _ from 'lodash-es';
 import React, { ReactElement } from 'react';
 import { Field, useField } from 'react-final-form';
-import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { v4 as uuidv4 } from 'uuid';
+
+import { StepFormat } from '../../interfaces/events';
 import EditableTable from '../EditableTable';
 import Form from '../Form';
+import Cascader from '../Form/Cascader';
 import Input, { TextArea } from '../Form/Input';
+import joi, { validateSchema } from '../Form/validation';
 import RestorableEditableTable from '../RestorableEditableTable';
 import { EditableListProps } from '../RestorableEditableTable/RestorableEditableTable';
-import joi, { validateSchema } from '../Form/validation';
-import { StepFormat } from '../../interfaces/events';
-import Cascader from '../Form/Cascader';
-import _ from 'lodash-es';
+
 interface Props {
   name: string;
   addLabel: React.ReactNode;
@@ -215,7 +217,7 @@ const EditStepModal = ({ onSubmit, name, index, ...restProps }: EditContactModal
       validator={validator}
       initialValues={{ format: [], ...field.input.value }}
     >
-      {({ valid, dirty, form, values }) => (
+      {({ valid, dirty, form }) => (
         <Modal
           {...restProps}
           onOk={() => form.submit()}
@@ -244,7 +246,7 @@ const EditStepModal = ({ onSubmit, name, index, ...restProps }: EditContactModal
                   type="text"
                   label="Step Format"
                   options={options}
-                  displayRender={(label: any, selectedOptions: any) => {
+                  displayRender={(label: any) => {
                     return label.join(' - ');
                   }}
                 />
@@ -317,7 +319,6 @@ export const RestorableStepsField = ({
   modalTitle,
   ...rest
 }: RestorableContactsFieldProps) => {
-  const intl = useIntl();
   const columns = [
     {
       title: 'Format',

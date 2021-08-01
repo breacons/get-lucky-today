@@ -1,9 +1,10 @@
-import { Button, Divider, Space, Spin, Steps, Typography } from 'antd';
-import React, { Fragment, ReactElement, useMemo, useState } from 'react';
+import { Button, Space, Spin, Steps, Typography } from 'antd';
+import firebase from 'firebase/app';
+import _ from 'lodash-es';
+import React, { Fragment, ReactElement, useState } from 'react';
 import Countdown from 'react-countdown';
 import { Field } from 'react-final-form';
-import { FieldArray } from 'react-final-form-arrays';
-import styles from './styles.module.less';
+
 import {
   EventStep,
   ParticipantStatus,
@@ -11,19 +12,15 @@ import {
   TransformedEvent,
 } from '../../interfaces/events';
 import { joi } from '../../lib/joi';
+import CustomSpinner from '../CustomSpinner';
 import { Form } from '../Form';
-import Checkbox from '../Form/Checkbox';
 import Input from '../Form/Input';
 import { validateSchema } from '../Form/validation';
 import If from '../If';
-import firebase from 'firebase/app';
-import _ from 'lodash-es';
 import { stepFormatDictionary } from '../StepsField';
-import { Link } from 'react-router-dom';
-import CustomSpinner from '../CustomSpinner';
+import styles from './styles.module.less';
 
 const { Step } = Steps;
-const { Paragraph } = Typography;
 
 interface Props {
   event: TransformedEvent;
@@ -80,8 +77,8 @@ const getFields = (steps: EventStep[]) => {
   return fields;
 };
 
-const createValidator = (steps: EventStep[]) => {
-  const formats = steps.map((step) => _.last(step.format)).join(' ');
+const createValidator = () => {
+  // const formats = steps.map((step) => _.last(step.format)).join(' ');
   const validation = joi
     .object({
       name: joi.string().required(),
@@ -131,7 +128,7 @@ export const OpenEventAction = ({ event }: Props) => {
             <Typography.Title level={5} style={{ marginTop: 0, marginBottom: 48 }}>
               Your submission was recorded.
             </Typography.Title>
-            <div className={styles.formContainer} style={{maxWidth: 800}}>
+            <div className={styles.formContainer} style={{ maxWidth: 800 }}>
               Winners announced in
               <Typography.Title level={1} style={{ marginBottom: 0 }}>
                 <Countdown
@@ -213,14 +210,14 @@ export const OpenEventAction = ({ event }: Props) => {
                 </Steps>
                 <Form
                   onSubmit={onSubmit}
-                  validator={createValidator(event.steps)}
+                  validator={createValidator()}
                   preventPrompt={true}
                   isLoading={false}
                   initialValues={{ accounts: {} }}
                 >
-                  {({ valid, touched, values }): ReactElement => (
+                  {({ valid, touched }): ReactElement => (
                     <Fragment>
-                        {/*<input type="hidden" value="prayer" />*/}
+                      {/*<input type="hidden" value="prayer" />*/}
                       <If
                         condition={accountFields.length > 0 && currentStep === event.steps.length}
                         then={() => (

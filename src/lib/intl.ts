@@ -1,9 +1,4 @@
-import {
-  createIntl as _createIntl,
-  createIntlCache,
-  IntlConfig,
-  IntlShape,
-} from 'react-intl';
+import { createIntl as _createIntl, createIntlCache, IntlConfig, IntlShape } from 'react-intl';
 
 /*const onError = config.REACT_INTL_VERBOSE
   ? (message: string) => {
@@ -28,7 +23,7 @@ let intl = _createIntl(
     messages: {},
     ...intlConfig,
   },
-  cache
+  cache,
 );
 function createIntl(config: IntlConfig): void {
   intl = _createIntl({ ...config, ...intlConfig }, cache);

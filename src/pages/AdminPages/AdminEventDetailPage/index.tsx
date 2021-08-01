@@ -1,28 +1,22 @@
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button, Space, Steps, Tabs, Typography } from 'antd';
 import React, { Fragment, useMemo } from 'react';
-import { useParams } from 'react-router';
-import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux/reducers';
+import { isLoaded, useFirebaseConnect } from 'react-redux-firebase';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+
+import { PageTitle } from '../../../components/Header';
+import If from '../../../components/If';
+import { SpinnerOverlay } from '../../../components/SpinnerOverlay';
 import { EventStatus, RaffleEvent, TransformedEvent } from '../../../interfaces/events';
-import { firebaseToObject } from '../../../utils/firebase-transformers';
+import { RootState } from '../../../redux/reducers';
+import { URL_ADMIN_EDIT_EVENT_DETAIL, URL_ADMIN_EVENT_LIST, URL_EVENT_DETAIL } from '../../../urls';
 import { transformEvent } from '../../../utils/events';
-import { Tabs, Descriptions, List, Typography, Button, Steps, Space } from 'antd';
-import { SectionTitle } from '../../../components/SectionTitle';
+import { firebaseToObject } from '../../../utils/firebase-transformers';
 import GeneralTab from './Tabs/GeneralTab';
 import ParticipantsTab from './Tabs/ParticipantsTab';
 import WinnersTab from './Tabs/WinnersTab';
-import {
-  URL_ADMIN_EDIT_EVENT_DETAIL,
-  URL_ADMIN_EVENT_DETAIL,
-  URL_ADMIN_EVENT_LIST,
-  URL_EVENT_DETAIL,
-} from '../../../urls';
-import { Link } from 'react-router-dom';
-import { SpinnerOverlay } from '../../../components/SpinnerOverlay';
-import If from '../../../components/If';
-import { ArrowLeftOutlined } from '@ant-design/icons';
-import { PageTitle } from '../../../components/Header';
-import { LandingLayout } from '../../../components/Layout';
 
 const { TabPane } = Tabs;
 const { Step } = Steps;

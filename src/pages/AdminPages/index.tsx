@@ -1,5 +1,8 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
+
+import { PageTitle } from '../../components/Header';
+import { LandingLayout } from '../../components/Layout';
 import {
   URL_ADMIN_CREATE_EVENT,
   URL_ADMIN_EDIT_EVENT_DETAIL,
@@ -7,13 +10,11 @@ import {
   URL_ADMIN_EVENT_LIST,
   URL_ADMIN_PROFILE,
 } from '../../urls';
-import AdminEventListPage from './AdminEventListPage';
-import AdminEventDetailPage from './AdminEventDetailPage';
-import AdminProfilePage from './AdminProfilePage';
-import AdminEditEventPage from './AdminEditEventPage';
 import AdminCreateEventPage from './AdminCreateEventPage';
-import { LandingLayout } from '../../components/Layout';
-import { PageTitle } from '../../components/Header';
+import AdminEditEventPage from './AdminEditEventPage';
+import AdminEventDetailPage from './AdminEventDetailPage';
+import AdminEventListPage from './AdminEventListPage';
+import AdminProfilePage from './AdminProfilePage';
 
 export const AdminPages = () => {
   return (

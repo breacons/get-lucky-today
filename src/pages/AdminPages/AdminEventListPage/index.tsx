@@ -1,16 +1,12 @@
-import React, { useMemo } from 'react';
-import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux/reducers';
-import { firebaseObjectToArray, firebaseToArray } from '../../../utils/firebase-transformers';
 import { Button, Table, Tag, Typography } from 'antd';
-import { useHistory, useLocation } from 'react-router';
-import { URL_ADMIN_CREATE_EVENT, URL_ADMIN_EVENT_DETAIL } from '../../../urls';
-import { transformEvent } from '../../../utils/events';
 import { Dayjs } from 'dayjs';
+import React from 'react';
+import { useFirebaseConnect } from 'react-redux-firebase';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import _ from 'lodash-es';
+
 import { useEvents } from '../../../hooks/events';
+import { URL_ADMIN_CREATE_EVENT, URL_ADMIN_EVENT_DETAIL } from '../../../urls';
 
 export const AdminEventListPage = () => {
   const history = useHistory();
@@ -50,7 +46,7 @@ export const AdminEventListPage = () => {
     },
   ];
 
-  console.log('isLoaded', isLoaded)
+  console.log('isLoaded', isLoaded);
 
   return (
     <div>
@@ -61,15 +57,11 @@ export const AdminEventListPage = () => {
         columns={columns}
         pagination={false}
         loading={!isLoaded}
-        onRow={(record, rowIndex) => {
+        onRow={(record) => {
           return {
-            onClick: (event) => {
+            onClick: () => {
               history.push(URL_ADMIN_EVENT_DETAIL.replace(':eventId', record.id));
             }, // click row
-            // onDoubleClick: (event) => {}, // double click row
-            // onContextMenu: (event) => {}, // right button click row
-            // onMouseEnter: (event) => {}, // mouse enter row
-            // onMouseLeave: (event) => {}, // mouse leave row
           };
         }}
       />

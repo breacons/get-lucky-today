@@ -1,21 +1,19 @@
-import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
-import { rootReducer } from './reducers';
 
 import { configureStore } from '@reduxjs/toolkit';
+import firebase from 'firebase/app';
 import { useDispatch } from 'react-redux';
 import { actionTypes } from 'react-redux-firebase';
+
 import { fbConfig } from '../config';
+import { rootReducer } from './reducers';
 
 const rrfConfig = {
   userProfile: 'users',
 };
 
-// Initialize firebase instance
 firebase.initializeApp(fbConfig);
-
-const initialState = {};
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -26,11 +24,6 @@ export const store = configureStore({
         ignoredActions: [actionTypes.LOGIN],
       },
     }),
-  // middleware: getDefaultMiddleware({
-  //   serializableCheck: {
-  //     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //   },
-  // }),
 });
 
 export type AppDispatch = typeof store.dispatch;

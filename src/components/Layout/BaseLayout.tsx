@@ -1,5 +1,5 @@
-import { Button, Layout, LayoutProps } from 'antd';
-import React, { PropsWithChildren, useEffect } from 'react';
+import { Layout, LayoutProps } from 'antd';
+import React, { PropsWithChildren } from 'react';
 
 type Props = LayoutProps;
 

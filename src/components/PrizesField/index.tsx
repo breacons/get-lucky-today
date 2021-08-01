@@ -2,20 +2,21 @@ import { Col, Modal, Row } from 'antd';
 import { ModalProps } from 'antd/es/modal';
 import React, { ReactElement } from 'react';
 import { Field, useField } from 'react-final-form';
-import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
 
+import { GiftCard } from '../../interfaces/blinksky';
+import { selectGiftCardEntities } from '../../redux/blinksky';
 // import { NaturalPerson } from '../../../interface';
 // import { UserName } from '../../../locale';
 import EditableTable from '../EditableTable';
 import Form from '../Form';
 import Input from '../Form/Input';
+import Select, { Option } from '../Form/Select';
+import joi, { validateSchema } from '../Form/validation';
 import RestorableEditableTable from '../RestorableEditableTable';
 import { EditableListProps } from '../RestorableEditableTable/RestorableEditableTable';
-import joi, { validateSchema } from '../Form/validation';
-import Select, { Option } from '../Form/Select';
-import { useSelector } from 'react-redux';
-import { getGiftCards, selectGiftCardEntities, selectGiftCards } from '../../redux/blinksky';
-import { GiftCard } from '../../interfaces/blinksky';
+
 interface Props {
   name: string;
   addLabel: React.ReactNode;
@@ -65,7 +66,6 @@ interface EditContactModalProps extends Partial<ModalProps> {
   index: number;
 }
 const EditPrizeModal = ({ onSubmit, name, index, ...restProps }: EditContactModalProps) => {
-  const intl = useIntl();
   const field = useField(`${name}[${index}]`);
   const initialValue = { ...field.input.value };
 

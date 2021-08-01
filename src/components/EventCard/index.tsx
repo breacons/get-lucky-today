@@ -1,13 +1,13 @@
-import { RaffleEvent } from '../../interfaces/events';
-import React, { Fragment } from 'react';
-
-import styles from './styles.module.less';
-import { Link } from 'react-router-dom';
-import { URL_EVENT_DETAIL } from '../../urls';
-import Countdown from 'react-countdown';
-import If from '../If';
+import classNames from 'classnames';
 import _ from 'lodash-es';
-import classNames from "classnames";
+import React, { Fragment } from 'react';
+import Countdown from 'react-countdown';
+import { Link } from 'react-router-dom';
+
+import { RaffleEvent } from '../../interfaces/events';
+import { URL_EVENT_DETAIL } from '../../urls';
+import If from '../If';
+import styles from './styles.module.less';
 
 interface Props {
   event: RaffleEvent;
@@ -16,7 +16,7 @@ interface Props {
 export const EventCard = ({ event, past }: Props) => {
   return (
     <Link to={URL_EVENT_DETAIL.replace(':eventId', event.id)}>
-      <div className={classNames([styles.container,{[styles.redContainer]: past}])}>
+      <div className={classNames([styles.container, { [styles.redContainer]: past }])}>
         <div>
           <div className={styles.organiser}>{event.organiser.name}</div>
           <div className={styles.title}>{event.name}</div>
@@ -42,7 +42,9 @@ export const EventCard = ({ event, past }: Props) => {
                 </strong>
               </Fragment>
             )}
-            else={() => <strong>{event.winners ? Object.keys(event.winners).length : 0} winners</strong>}
+            else={() => (
+              <strong>{event.winners ? Object.keys(event.winners).length : 0} winners</strong>
+            )}
           />
         </div>
       </div>

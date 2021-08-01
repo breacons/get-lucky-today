@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react';
-import { TransformedEvent } from '../../interfaces/events';
-import _ from 'lodash-es';
 import { Typography } from 'antd';
+import _ from 'lodash-es';
+import React, { useMemo } from 'react';
+
+import { TransformedEvent } from '../../interfaces/events';
 interface Props {
   event: TransformedEvent;
 }

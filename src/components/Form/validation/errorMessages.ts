@@ -1,5 +1,5 @@
-import { defineMessages } from 'react-intl';
 import _ from 'lodash';
+import { defineMessages } from 'react-intl';
 
 const transformMessages = (messages: Record<string, string>) => {
   return _.keyBy(

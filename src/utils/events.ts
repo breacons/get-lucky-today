@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+
 import { EventStatus, RaffleEvent } from '../interfaces/events';
 
 export const transformEvent = (originalEvent: RaffleEvent) => {

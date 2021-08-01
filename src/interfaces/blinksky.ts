@@ -150,4 +150,3 @@ export interface Delivery {
   url: string;
   value: string;
 }
-

@@ -3,14 +3,13 @@ import classNames from 'classnames';
 // import Head from 'next/head';
 // import Link from 'next/link';
 import { PropsWithChildren } from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import React from 'react';
+
 import If from '../If';
-
-import { BaseLayout } from './BaseLayout';
-
 import styles from './Authentication.module.less';
+import { BaseLayout } from './BaseLayout';
 
 interface Props {
   cover: string;

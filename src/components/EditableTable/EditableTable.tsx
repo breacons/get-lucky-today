@@ -52,7 +52,7 @@ export const EditableTable = ({ children, name, addLabel, allowDisplay = false }
   };
 
   const getColumns = (fields: any) => {
-    const valueFields = React.Children.map(children, child => ({
+    const valueFields = React.Children.map(children, (child) => ({
       title: child.props.label,
       dataIndex: child.props.name,
       key: child.props.name,
@@ -83,7 +83,10 @@ export const EditableTable = ({ children, name, addLabel, allowDisplay = false }
 
   return (
     <Fragment>
-      <FormSpy subscription={{ errors: true }} onChange={spyProps => setErrors(spyProps.errors)} />
+      <FormSpy
+        subscription={{ errors: true }}
+        onChange={(spyProps) => setErrors(spyProps.errors)}
+      />
       <FieldArray name={name}>
         {({ fields }) => {
           return (

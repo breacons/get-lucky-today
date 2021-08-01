@@ -1,5 +1,6 @@
-import { GiftCard } from '../../interfaces/blinksky';
 import React from 'react';
+
+import { GiftCard } from '../../interfaces/blinksky';
 import styles from './styles.module.less';
 
 interface Props {
@@ -11,8 +12,7 @@ interface Props {
 export const PrizeCard = ({ card, count, value }: Props) => {
   return (
     <div style={{ marginBottom: 32 }}>
-      <div className={styles.container} style={{ backgroundImage: `url(${card.logo})` }}>
-      </div>
+      <div className={styles.container} style={{ backgroundImage: `url(${card.logo})` }}></div>
       {count && value && (
         <div className={styles.caption}>
           {count}x ${value} {card.caption} Card

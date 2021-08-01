@@ -1,13 +1,10 @@
+import { Button, Col, Row, Steps, Typography } from 'antd';
+import _ from 'lodash-es';
 import React, { Fragment } from 'react';
-import { EventStatus, StepFormat, TransformedEvent } from '../../../../interfaces/events';
-import { Button, Col, Descriptions, List, Row, Space, Spin, Steps, Typography } from 'antd';
-import { SectionTitle } from '../../../../components/SectionTitle/SectionTitle';
-import { Link } from 'react-router-dom';
-import { URL_ADMIN_EDIT_EVENT_DETAIL, URL_EVENT_DETAIL } from '../../../../urls';
+
 import PrizeCard from '../../../../components/PrizeCard';
 import { stepFormatDictionary } from '../../../../components/StepsField';
-import _ from 'lodash-es';
-import If from '../../../../components/If';
+import { StepFormat, TransformedEvent } from '../../../../interfaces/events';
 
 interface Props {
   event: TransformedEvent;
@@ -32,7 +29,7 @@ export const GeneralTab = ({ event }: Props) => {
       </Row>
       <Typography.Title level={2}>Required steps</Typography.Title>
       <Steps direction="vertical" current={-1}>
-        {event.steps.map((step, index) => {
+        {event.steps.map((step) => {
           return (
             <Steps.Step
               title={stepFormatDictionary[_.last(step.format) as StepFormat]}

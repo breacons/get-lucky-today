@@ -1,22 +1,22 @@
-import React, { Fragment, useEffect, useMemo } from 'react';
-import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux/reducers';
-import { RaffleEvent, TransformedEvent } from '../../../interfaces/events';
-import { firebaseToObject } from '../../../utils/firebase-transformers';
-import { transformEvent } from '../../../utils/events';
-import { useParams } from 'react-router';
-import { useAppDispatch } from '../../../redux/store';
-import { getGiftCards } from '../../../redux/blinksky';
-import { EditEventForm } from '../../../components/EditEventForm';
-import { Typography } from 'antd';
-import { URL_ADMIN_EVENT_DETAIL, URL_ADMIN_EVENT_LIST } from '../../../urls';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Typography } from 'antd';
+import React, { Fragment, useEffect, useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { isLoaded, useFirebaseConnect } from 'react-redux-firebase';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+
+import { EditEventForm } from '../../../components/EditEventForm';
+import { PageTitle } from '../../../components/Header';
 import If from '../../../components/If';
 import { SpinnerOverlay } from '../../../components/SpinnerOverlay';
-import { PageTitle } from '../../../components/Header';
-import { LandingLayout } from '../../../components/Layout';
+import { RaffleEvent, TransformedEvent } from '../../../interfaces/events';
+import { getGiftCards } from '../../../redux/blinksky';
+import { RootState } from '../../../redux/reducers';
+import { useAppDispatch } from '../../../redux/store';
+import { URL_ADMIN_EVENT_DETAIL } from '../../../urls';
+import { transformEvent } from '../../../utils/events';
+import { firebaseToObject } from '../../../utils/firebase-transformers';
 
 export const AdminEditEventPage = () => {
   const { eventId } = useParams<any>();

@@ -6,8 +6,13 @@ import React, { Fragment, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
+import { ComplexLoader } from '../../../../components/ComplexLoader';
+import CustomSpinner from '../../../../components/CustomSpinner';
 import If from '../../../../components/If';
+import PrizeCard from '../../../../components/PrizeCard';
+import { SectionTitle } from '../../../../components/SectionTitle';
 import { firebaseApiUrl } from '../../../../config';
+import { DeliveryListItem, GiftCard } from '../../../../interfaces/blinksky';
 import {
   EventWinner,
   EventWinnerStatus,
@@ -16,11 +21,6 @@ import {
 } from '../../../../interfaces/events';
 import { RootState } from '../../../../redux/reducers';
 import { firebaseObjectToArray } from '../../../../utils/firebase-transformers';
-import { DeliveryListItem, GiftCard } from '../../../../interfaces/blinksky';
-import { ComplexLoader } from '../../../../components/ComplexLoader';
-import CustomSpinner from '../../../../components/CustomSpinner';
-import { SectionTitle } from '../../../../components/SectionTitle';
-import PrizeCard from '../../../../components/PrizeCard';
 
 interface Props {
   event: TransformedEvent;

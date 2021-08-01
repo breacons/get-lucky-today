@@ -26,7 +26,7 @@ const getKeyFromPath = (path: (string | number)[]): string => {
 
 export const validateSchema = (schema: Schema, options?: ValidationOptions) => (
   data: AnyObject,
-): ValidationErrorItem[] | any=> {
+): ValidationErrorItem[] | any => {
   if (!schema) {
     return;
   }
@@ -105,7 +105,6 @@ export const getValidationMessage = (error: string | ValidationErrorItem): any =
 };
 
 export const validationMessages = (errors: Array<ValidationErrorItem> | any, level = 0): any => {
-
   if (errors === null) {
     return {};
   }

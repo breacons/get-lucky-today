@@ -1,23 +1,23 @@
-import { Form } from '../Form/Form';
+import { Button, Col, Row, Space, Typography } from 'antd';
+import firebase from 'firebase';
 import _ from 'lodash-es';
 import React, { Fragment, ReactElement, useState } from 'react';
 import { Field } from 'react-final-form';
-import Input, { TextArea } from '../Form/Input';
-import DatePicker from '../Form/DatePicker';
-import { RestorablePrizesField } from '../PrizesField';
-import { RestorableStepsField } from '../StepsField';
-import { Button, Col, Row, Space, Typography } from 'antd';
-import { joi } from '../../lib/joi';
-import { validateSchema } from '../Form/validation';
-import { v4 as uuidv4 } from 'uuid';
-import firebase from 'firebase';
-import { URL_ADMIN_EVENT_DETAIL, URL_ADMIN_EVENT_LIST } from '../../urls';
-import { RaffleEvent } from '../../interfaces/events';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+
+import { RaffleEvent } from '../../interfaces/events';
+import { joi } from '../../lib/joi';
 import { RootState } from '../../redux/reducers';
-import { SectionTitle } from '../SectionTitle';
+import { URL_ADMIN_EVENT_DETAIL, URL_ADMIN_EVENT_LIST } from '../../urls';
+import DatePicker from '../Form/DatePicker';
+import { Form } from '../Form/Form';
+import Input, { TextArea } from '../Form/Input';
+import { validateSchema } from '../Form/validation';
+import { RestorablePrizesField } from '../PrizesField';
+import { RestorableStepsField } from '../StepsField';
 
 const validation = joi
   .object({
@@ -76,7 +76,7 @@ export const EditEventForm = ({ event }: Props) => {
         isLoading={false}
         initialValues={{ steps: [], prizes: [], ..._.omit(event, ['winners', 'participant']) }}
       >
-        {({ valid, pristine, values }): ReactElement => (
+        {({ valid, pristine }): ReactElement => (
           <Fragment>
             <Typography.Title level={2}>General Information</Typography.Title>
             <Field

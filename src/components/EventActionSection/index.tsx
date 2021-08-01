@@ -1,9 +1,10 @@
-import { EventStatus, TransformedEvent } from '../../interfaces/events';
 import React from 'react';
+
+import { EventStatus, TransformedEvent } from '../../interfaces/events';
+import AnnouncedEventAction from './AnnouncedEventAction';
+import ClosedEventAction from './ClosedEventAction';
 import FutureEventAction from './FutureEventAction';
 import OpenEventAction from './OpenEventAction';
-import ClosedEventAction from './ClosedEventAction';
-import AnnouncedEventAction from './AnnouncedEventAction';
 
 interface Props {
   event: TransformedEvent;
